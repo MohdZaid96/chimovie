@@ -1,0 +1,14 @@
+#login_main{
+    width: 100vw;
+    height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+
+}
+#inner{
+    padding: 0px;
+    color: white;    
+    width: 30%
+}

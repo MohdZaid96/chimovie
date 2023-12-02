@@ -1,0 +1,33 @@
+#main{
+    width: 100vw;
+background-color: #212529;
+
+}
+#image{
+    width: 50%;
+    margin: 20px;
+    padding: 20px;
+    align-items: center;
+
+}
+#image > img{
+    width: 60%;
+    padding: 20px;
+
+
+}
+#details{
+    /* text-align: center; */
+    color: white;
+    width: 50%;
+    margin: 20px;
+    padding: 20px;
+        /* align-items: center; */
+    display: flex;
+    flex-direction: column;
+}
+#details *{
+    margin: 20px;
+    padding: 15px;
+    justify-items: center;
+}

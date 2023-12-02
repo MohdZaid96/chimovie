@@ -1,0 +1,9 @@
+.navbar navbar-expand-lg bg-body-tertiary{
+    justify-content: space-between;
+}
+#a{
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    width: 30%;
+}
