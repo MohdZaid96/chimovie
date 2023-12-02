@@ -15,10 +15,12 @@ body{
     margin: 20px;
     padding: 10px;
 }
-#func{
-    display:flex;
-    justify-content: space-between;
-    padding:20px;
+#func{    
+        
+        display: flex;
+        justify-content: space-between;
+        margin: 2%;
+    
 
 }
 #func > input{
@@ -27,12 +29,14 @@ body{
     background-color: #212529;
     color: white;
     padding: 5px;
+    height: 20px;
 }
 #func > button{
     border: white 1px solid;
     border-radius: 5px;
     background-color: #212529;
     color: white;
+    height: 20px;
 }
 
 

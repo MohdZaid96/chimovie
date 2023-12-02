@@ -4,7 +4,7 @@ import {useNavigate} from "react-router-dom";
 
 
 const Signup = () => {
-    const users=JSON.parse(localStorage.getItem("users")) || []
+    const users=JSON.parse(localStorage.getItem("users")) || [];
     // localStorage.setItem("account-data", JSON.stringify(arr));
     const [email, setEmail] = useState("");
     const [pass, setPass] = useState("");
@@ -17,21 +17,29 @@ const Signup = () => {
         if(!email || !pass || !passC){
             alert("Please fill all the field");
         }else{
-            if(users.filter(obj => obj.email==email))
-            {
+            let flag=false;
+            users?.map((ele)=>{
+              if(ele.email==email){
+                flag=true;
+              }
+          }); 
+              if(flag){
                 alert("Already a user");
                 nav("/login");
-            }else{
+              }else{
                 var obj={
-                    email,pass,passC
-                }
-                users.push(obj);
-                localStorage.setItem("users", JSON.stringify(users));
-                localStorage.setItem("token", true);
+                  email,pass
+              }
+              users.push(obj);
+              localStorage.setItem("users", JSON.stringify(users));
+              localStorage.setItem("token", true);
+              nav("/")
+              }
+                
 
             }
         }
-    }
+    
 
 
 

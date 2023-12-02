@@ -5,7 +5,7 @@ import {useNavigate} from "react-router-dom";
 
 
 const Login = () => {
-    const users=JSON.parse(localStorage.getItem("users")) || []
+    const users=JSON.parse(localStorage.getItem("users")) || [];
     // localStorage.setItem("account-data", JSON.stringify(arr));
     const [email, setEmail] = useState("");
     const [pass, setPass] = useState("");
@@ -15,14 +15,23 @@ const Login = () => {
         if(!email || !pass ){
             alert("Please fill all the field");
         }else{
-            console.log(users)
-            const check=users.filter((obj) => {if(obj.email==email){
-                return true;
-            }});
-            if(check)
-            {
-                localStorage.setItem("token", true);
-                nav("/");
+            let flag=false;
+            let password="";
+
+            users?.map((ele)=>{
+              if(ele.email==email){
+                flag=true;
+                password=ele.pass;
+              }
+            });
+            if(flag)
+            {   if(password==pass){
+              localStorage.setItem("token", true);
+              nav("/");
+            }else{
+              alert("Wrong password");
+            }
+                
             }else{
                 console.log("else");
 
