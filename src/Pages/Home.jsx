@@ -17,7 +17,7 @@ const Home = () => {
   const handleSearch = async () => {
     try {
       const res = await axios.get(
-        `http://www.omdbapi.com/?apikey=${API_KEY}&s=${search}&y=${year}`
+        `${BASE_URL}?apikey=${API_KEY}&s=${search}&y=${year}`
       );
       setData(res.data.Search);
     } catch (error) {
