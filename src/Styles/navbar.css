@@ -44,3 +44,7 @@
         width:90%;
     }
 }
+
+.container-fluid > h1{
+    color: rgb(152, 85, 85);
+}
