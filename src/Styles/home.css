@@ -10,6 +10,10 @@ body{
     /* background-color: #212529; */
 
   }
+  #main_home{
+    display: flex;
+    flex-direction: column;
+  }
 #card{
     /* background-color: #212529; */
     margin: 20px;
@@ -20,6 +24,8 @@ body{
         display: flex;
         justify-content: space-between;
         margin: 2%;
+        width: 90%;
+        justify-content: space-evenly;
     
 
 }
@@ -30,13 +36,16 @@ body{
     color: white;
     padding: 5px;
     height: 20px;
+    width: 30%;
 }
 #func > button{
     border: white 1px solid;
     border-radius: 5px;
     background-color: #212529;
     color: white;
-    height: 20px;
+    /* height: 20px; */
+    width: 20%;
+
 }
 
 
@@ -49,9 +58,13 @@ body{
   }
   
   @media all and (min-width: 768px) and (max-width: 1023px) {
-    
+    #display {
+        grid-template-columns: repeat(2, 1fr);
+    }
   }
   
-  @media all and (min-width: 1024px) and (max-width: 1439px) {
-   
+  @media all and (min-width: 1024px) and (max-width: 1300px) {
+    #display {
+        grid-template-columns: repeat(3, 1fr);
+    }
   }

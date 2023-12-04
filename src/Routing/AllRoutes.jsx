@@ -4,6 +4,7 @@ import Home from '../Pages/Home';
 import SinglePage from '../Pages/SinglePage';
 import Login from '../Pages/Login';
 import Signup from '../Pages/Signup';
+import Fav from '../Pages/Fav';
 
 
 
@@ -16,6 +17,8 @@ const AllRoutes = () => {
           <Route path='/movie/:imdbID' element={<SinglePage />}></Route>
           <Route path='/login'  element={<Login />}></Route>
           <Route path='/signup'  element={<Signup />}></Route>
+          <Route path='/fav'  element={<Fav />}></Route>
+
       </Routes>
   )
 }

@@ -1,9 +1,35 @@
-.navbar navbar-expand-lg bg-body-tertiary{
+
+
+.container-fluid{
+    width: 70%;
     justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+}
+.container-fluid > *{
+    margin-left: 10px;
 }
 #a{
     display: flex;
     flex-direction: row;
     margin: auto;
-    width: 30%;
+    width:40%;
+    justify-content: end;
+}
+#a > a{
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    width:20%;
+    text-decoration: none;
+    color: white;
+}
+#a > a:hover{   
+    color: orange;
+}
+#main{
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    justify-content: space-between;
 }

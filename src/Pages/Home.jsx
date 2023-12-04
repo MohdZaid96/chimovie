@@ -1,19 +1,16 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../Styles/home.css";
-import { useNavigate } from "react-router-dom";
+import { json, useNavigate } from "react-router-dom";
 
 const Home = () => {
   let API_KEY = "693aa735";
   const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
-  const [value, setValue] = useState(false);
-  const [filterFlag, setFilterFlag] = useState(false);
-  const [filter, setFilter] = useState("");
+  
   const [year, setYear] = useState("");
   const [flags, setFlags] = useState(false);
   const [flagf, setFlagf] = useState(false);
-
   const nav = useNavigate();
   // year, rating
 
@@ -22,12 +19,18 @@ const Home = () => {
       const res = await axios.get(
         `http://www.omdbapi.com/?apikey=${API_KEY}&s=${search}&y=${year}`
       );
-      console.log(setData(res.data.Search));
+      setData(res.data.Search);
     } catch (error) {
       console.log(error);
     }
   };
 
+  const handleFav=(ele)=>{ 
+    const arr=JSON.parse(localStorage.getItem("fav")) || [];
+    arr.push(ele);
+    localStorage.setItem("fav",JSON.stringify(arr));
+    
+  }
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       nav("/login");
@@ -37,7 +40,7 @@ const Home = () => {
   }, [search]);
 
   return (
-    <div id="main">
+    <div id="main_home">
       <div id="func">
         <input
           type="text"
@@ -98,11 +101,11 @@ const Home = () => {
           return (
             <div
               id="card"
-              onClick={() => {
-                nav(`/movie/${elem.imdbID}`);
-              }}
             >
               <div className="card" style={{ width: "18rem" }}>
+                <div onClick={() => {
+                  nav(`/movie/${elem.imdbID}`);
+                }}>
                 <img
                   className="card-img-top"
                   src={elem.Poster}
@@ -115,6 +118,8 @@ const Home = () => {
                   <li className="list-group-item">{elem.Type}</li>
                   <li className="list-group-item">{elem.Year}</li>
                 </ul>
+                </div>
+                <button onClick={()=>handleFav(elem)}>Add to Wishlist</button>
               </div>
             </div>
           );
