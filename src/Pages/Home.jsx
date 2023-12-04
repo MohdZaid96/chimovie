@@ -7,8 +7,8 @@ import { json, useNavigate } from "react-router-dom";
 const Home = () => {
   const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
-  const BASE_URL=process.env.BASE_URL;
-  const API_KEY=process.env.API_KEY;
+  const BASE_URL=process.env.REACT_APP_BASE_URL;
+  const API_KEY=process.env.REACT_APP_API_KEY;
   
   const [year, setYear] = useState("");
   const [flags, setFlags] = useState(false);
@@ -18,8 +18,7 @@ const Home = () => {
 
   const handleSearch = async () => {
     try {
-      const res = await axios.get(
-        `${BASE_URL}${API_KEY}&s=${search}&y=${year}`
+      const res = await axios.get(`${BASE_URL}${API_KEY}&s=${search}&y=${year}`
       );
       setData(res.data.Search);
     } catch (error) {
